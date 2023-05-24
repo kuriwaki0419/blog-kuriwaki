@@ -7,29 +7,37 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" href="blog_main.css">
-</head>
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Londrina+Shadow" rel="stylesheet">
 
 <body>
 	<header id = "header">
 		<h1 class = "site-title">My Blog</h1>
-		<ul>
-			<nav>
-				<li>Article List</li>
+		<nav>
+			<ul>
+				<li><a href = "#article">Article List</a></li>
 				<li>Article Writing</li>
 				<li>Article Editing</li>
 				<li>Logout</li>
-			</nav>
-		</ul>
+			</ul>
+		</nav>
 	</header>
 
 	<main>
 		<div id = "main-visual">
 			<picture>
-				<source media = "(max-width: 600px)" srcset = "../train.jpeg">
-				<img src = "../train.jpeg" alt = "メインビジュアル">
+				<source media = "(max-width: 600px)" srcset = "../kaede.jpg">
+				<img src = "../kaede.jpg" alt = "メインビジュアル">
 			</picture>
 		</div>
+		<section id = "article" class = "wrapper">
+			<h2 class = "section-title">Article</h2>
+		</section>
 	</main>
+	<footer id = "footer">
+		<p>&copy; 2023 My Blog Kuriwaki</p>
+	</footer>
 </body>
 
 </html>

@@ -19,7 +19,26 @@ li {
 }
 
 .site-title {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 2.4rem;
     line-height: 1px;
+}
+
+.section-title {
+    display: inline-block;
+    justify-content: space-between;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 60px;
+    border-bottom: solid 1px #383e45;
+}
+
+.wrapper {
+    max-width: 960px;
+    margin: 0 auto 100px auto;
+    padding: 0 4%;
+    text-align: center;
 }
 
 /*-------------------------------------------
@@ -30,9 +49,13 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 270px;
+    height: 200px;
     margin: 0 auto;
     padding: 0 4%;
+}
+
+#header li a {
+    color: #24292e;
 }
 
 #header ul {
@@ -41,18 +64,32 @@ li {
 }
 
 #header li {
-    font-size: 0.9rem;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
     margin-left: 30px;
 }
 
-#header li a {
-    color: #24292e;
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+#main-visual {
+    margin-bottom: 80px;
 }
 
-#header li a:hover {
-    opacity: 0.7;
+#main-visual img {
+    width: 100%;
+    max-width: 1920px;
+    height: 420px;
+    object-fit: cover;
 }
 
-#header li img.icon {
-    width: 20px;
+/*-------------------------------------------
+フッター
+-------------------------------------------*/
+#footer {
+    background-color: #24292e;
+    color: #fff;
+    font-size: 0.5rem;
+    padding: 10px 20px;
+    text-align: center;
 }
