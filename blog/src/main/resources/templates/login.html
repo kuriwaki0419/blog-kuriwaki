@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+    <main>
+        <section>
+            <div class="wrapper">
+                <div class="container">
+                    <h1>
+                        <ul class = "welcome">
+                            <span><li>W</li></span>
+                            <li>E</li>
+                            <li>L</li>
+                            <li>C</li>
+                            <li>O</li>
+                            <li>M</li>    
+                            <li>E</li>    
+                        </ul>
+                    </h1>
+                    <!--ログインチェック-->
+                    <form class = "form" th:action = "@{/user/login/process}" method = "post">
+                        <input type = "text" name = "accountName" placeholder = "UserName" required>
+                        <input type = "password" name = "password" placeholder = "Password" required>
+                        <button type = "submit" id = "login-button">Login</button><br>
+                        <a th:href = "@{/user/register}" target = "_blank">Register</a>
+                    </form>
+                </div>                
+                <ul class="bg-egg">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </section>
+        <script src = "https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+        <script src = "login.js"></script>
+    </main>
+</body>
+</html>

@@ -1,0 +1,184 @@
+html {
+    font-size: 100%;
+}
+
+body {
+    color: #24292e;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+.site-title {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 2.4rem;
+    line-height: 1px;
+}
+
+.section-title {
+    display: inline-block;
+    justify-content: space-between;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0px;
+    border-bottom: solid 1px #383e45;
+}
+
+.wrapper {
+    max-width: 960px;
+    margin: 0 auto 100px auto;
+    padding: 0 4%;
+    text-align: center;
+}
+
+/*-------------------------------------------
+                    ヘッダー
+-------------------------------------------*/
+#header {
+    max-width: 960px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+#header li a {
+    color: #24292e;
+}
+
+#header li a:hover{
+    color: #827676;
+}
+
+#header ul {
+    display: flex;
+    padding: 10px 0;
+}
+
+#header li {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    margin-left: 30px;
+}
+
+/*-------------------------------------------
+                Mainvisual
+-------------------------------------------*/
+#main-visual {
+    margin-bottom: 80px;
+}
+
+#main-visual img {
+    width: 100%;
+    max-width: 1920px;
+    height: 420px;
+    object-fit: cover;
+}
+
+
+/*-------------------------------------------
+                記事作成エリア
+-------------------------------------------*/
+#article-edit dl {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+#article-edit dt {
+    width: 10%;
+}
+
+#article-edit dd {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+#article-edit dd input,
+#article-edit dd textarea {
+  width: 100%;
+  border: solid 1px #c8c8c8;
+  padding: 10px;
+}
+
+#article-edit dd textarea {
+    height: 20rem;
+}
+
+/*--------------------------------
+            ボタン関連
+---------------------------------*/
+
+#set-button{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+#article-edit .update-button input {
+    width: 200px;
+    background-color: #24292e;
+    color: #fff;
+    padding: 15px 0;
+    border: solid 1px #24292e;
+}
+
+#article-edit .update-button input:hover {
+    background: #fff;
+    color: #24292e;
+}
+
+#article-edit .delete-button input {
+    width: 200px;
+    background-color: #24292e;
+    color: #fff;
+    padding: 15px 0;
+    border: solid 1px #24292e;
+}
+
+#article-edit .delete-button input:hover {
+    background: #fff;
+    color: #d92a2a;
+}
+
+
+
+/*-------------------------------------------
+                  記事の枠線
+-------------------------------------------*/
+.box{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #5d627b;
+    background: white;
+    border-left: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+.box p {
+    margin: 0; 
+    padding: 0;
+}
+
+
+/*-------------------------------------------
+                    フッター
+-------------------------------------------*/
+#footer {
+    background-color: #24292e;
+    color: #fff;
+    font-size: 0.5rem;
+    padding: 10px 20px;
+    text-align: center;
+}
