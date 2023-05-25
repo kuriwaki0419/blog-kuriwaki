@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="blog_main.css">
+	<link rel="stylesheet" href="blog_register.css">
 	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Londrina+Shadow" rel="stylesheet">
@@ -16,8 +16,8 @@
 		<h1 class = "site-title">My Blog</h1>
 		<nav>
 			<ul>
-				<li><a href = "#article">Article List</a></li>
-				<li><a href = "blog_register.html" target = "_blank">Article Writing</a></li>
+				<li><a href = "blog_main.html" target = "_blank">Article List</a></li>
+				<li><a href = "#new-article">Article Writing</a></li>
 				<li><a href = "blog_edit.html" target = "_blank">Article Editing</a></li>
 				<li><a href = "login.html" target = "_blank">Logout</a></li>
 			</ul>
@@ -31,10 +31,27 @@
 				<img src = "img/kaede.jpg" alt = "メインビジュアル">
 			</picture>
 		</div>
-		<section id = "article" class = "wrapper">
-			<h2 class = "section-title">Article</h2>
+
+		<section id = "new-article" class = "wrapper">
+			<h2 class = "section-title">Newer Articles</h2>
+            <form action = "" method = "post">
+				<div class="box">
+					<dl>
+						<dt>Title</dt>
+						<dd><input type = "text" id = "title" name = "blog-title" placeholder = "タイトルを入力" required></dd>
+						<dt>Category</dt>
+						<dd><input type = "text" id = "category" name = "category-name" placeholder = "カテゴリを入力" required></dd>
+						<dt>Image</dt>
+						<dd><input type = "file" name = "blog-image"></dd>
+						<dt>Article</dt>
+						<dd><textarea id = "article" name = "article" placeholder = "記事を入力" required></textarea></dd>
+					</dl>
+				</div>
+                <div class = "button"><input type = "submit" value = "Add article"></div>
+            </form>
 		</section>
 	</main>
+
 	<footer id = "footer">
 		<p>&copy; 2023 My Blog Kuriwaki</p>
 	</footer>
