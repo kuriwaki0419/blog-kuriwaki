@@ -13,13 +13,13 @@
 </head>
 <body>
 	<header id = "header">
-		<h1 class = "site-title">My Blog</h1>
+		<h1 class = "site-title"><a href = "#" th:text ="${accountName}"></a></h1>
 		<nav>
 			<ul>
-				<li><a href = "blog_main.html" target = "_blank">Article List</a></li>
-				<li><a href = "#new-article">Article Writing</a></li>
-				<li><a href = "blog_edit.html" target = "_blank">Article Editing</a></li>
-				<li><a href = "login.html" target = "_blank">Logout</a></li>
+				<li><a th:href = "@{/user/blog/list}" target = "_blank">Article List</a></li>
+				<li><a th:href = "@{#new-article}">Article Writing</a></li>
+				<li><a th:href = "@{/user/blog/edit}" target = "_blank">Article Editing</a></li>
+				<li><a th:href = "@{/user/blog/logout}" target = "_blank">Logout</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -27,22 +27,22 @@
 	<main>
 		<div id = "main-visual">
 			<picture>
-				<source media = "(max-width: 600px)" srcset = "img/kaede.jpg">
-				<img src = "img/kaede.jpg" alt = "メインビジュアル">
+				<source media = "(max-width: 600px)" th:srcset = "@{/img/kaede.jpg}">
+				<img th:src = "@{/img/kaede.jpg}" alt = "メインビジュアル">
 			</picture>
 		</div>
-
+		<h2 th:text = "${registerMessage}"></h2>
 		<section id = "new-article" class = "wrapper">
 			<h2 class = "section-title">Newer Articles</h2>
-            <form th:action = "@{/user/register/process}" method = "post">
+            <form th:action = "@{/user/blog/register/process}" enctype = "multipart/form-data" method = "post">
 				<div class="box">
 					<dl>
 						<dt>Title</dt>
-						<dd><input type = "text" id = "title" name = "blog-title" placeholder = "タイトルを入力" required></dd>
+						<dd><input type = "text" id = "title" name = "blogTitle" placeholder = "タイトルを入力" required></dd>
 						<dt>Category</dt>
-						<dd><input type = "text" id = "category" name = "category-name" placeholder = "カテゴリを入力" required></dd>
+						<dd><input type = "text" id = "category" name = "categoryName" placeholder = "カテゴリを入力" required></dd>
 						<dt>Image</dt>
-						<dd><input type = "file" name = "blog-image"></dd>
+						<dd><input type = "file" name = "blogImage"></dd>
 						<dt>Article</dt>
 						<dd><textarea id = "article" name = "article" placeholder = "記事を入力" required></textarea></dd>
 					</dl>
