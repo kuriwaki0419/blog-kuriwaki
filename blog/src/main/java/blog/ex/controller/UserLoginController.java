@@ -31,7 +31,7 @@ public class UserLoginController {
 																	同一のWebブラウザからのアクセスとして処理するため*/
 	
 	// アカウントログイン画面の表示 -----------------------------------------------------------------------------------
-	@GetMapping("/login")													// HTTP GETリクエストに対する紐づけ
+	@GetMapping("/login")										// HTTP GETリクエストに対する紐づけ
 	public String getUserLoginPage() {
 		return "login.html";
 	}

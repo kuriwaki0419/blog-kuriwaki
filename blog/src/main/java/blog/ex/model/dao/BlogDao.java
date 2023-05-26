@@ -8,15 +8,20 @@ package blog.ex.model.dao;
 /****************************************************************************************************************************************/
 
 // インポート ------------------------------------------------------------------------------------------------------------------------
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
-import blog.ex.model.entity.UserEntity;
+import blog.ex.model.entity.BlogEntity;
 
 // CRUD操作を簡単に実装するための処理 ---------------------------------------------------------------------------------------------------
-public interface UserDao extends JpaRepository<UserEntity, Long> {
+public interface BlogDao extends JpaRepository<BlogEntity, Long> {
 
-	UserEntity save(UserEntity userEntity);					// UserEntityを引数として受け取り、UserEntityを保存、保存したUserEntityを返す
+	List<BlogEntity> findByAccountId(Long accountId);		// accountIdに一致する複数のBlogEntityを取得する
 	
-	UserEntity findByAccountEmail(String accountEmail);		// String型の引数を受け取り、受け取った引数と一致するaccountEmailを持つUserEntityを返す
+	BlogEntity save(BlogEntity blogEntity);					// 引数で渡されたBlogEntityオブジェクトをDBに格納する
 	
-	UserEntity findByAccountNameAndPassword(String accountName, String password);	// 引数で受け取ったNameとpasswordをUserEntityの中で一致するものを探す
+	// ブログのタイトルとカテゴリから検索して、BlogEntityオブジェクトを取得する
+	BlogEntity findByBlogTitleAndCategoryName(String blogTitle, String categoryName);
+	
+	// blogIdに一致する複数のBlogEntityを取得する
+	BlogEntity findByBlogId(Long blogId);
 }

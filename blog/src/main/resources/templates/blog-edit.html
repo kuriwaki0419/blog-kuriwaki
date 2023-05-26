@@ -6,20 +6,20 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="blog_edit.css">
+	<link rel="stylesheet" th:href="@{/css/blog-edit.css}">
 	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Londrina+Shadow" rel="stylesheet">
 </head>
 <body>
 	<header id = "header">
-		<h1 class = "site-title">My Blog</h1>
+		<h1 class = "site-title"><a href = "#" th:text ="${accountName}"></a></h1>
 		<nav>
             <ul>
-                <li><a href = "blog_main.html" target = "_blank">Article List</a></li>
-                <li><a href = "blog_register.html" target = "_blank">Article Writing</a></li>
-                <li><a href = "#article-edit">Article Editing</a></li>
-                <li><a href = "login.html" target = "_blank">Logout</a></li>
+                <li><a th:href = "@{/user/blog/list}" target = "_blank">Article List</a></li>
+                <li><a th:href = "@{/user/blog/register}" target = "_blank">Article Writing</a></li>
+                <li><a th:href = "@{#article-edit}">Article Editing</a></li>
+                <li><a th:href = "@{/user/blog/logout}" target = "_blank">Logout</a></li>
             </ul>
 		</nav>
 	</header>
@@ -27,8 +27,8 @@
 	<main>
 		<div id = "main-visual">
 			<picture>
-				<source media = "(max-width: 600px)" srcset = "img/kaede.jpg">
-				<img src = "img/kaede.jpg" alt = "メインビジュアル">
+				<source media = "(max-width: 600px)" th:srcset = "@{/img/kaede.jpg}">
+				<img th:src = "@{/img/kaede.jpg}" alt = "メインビジュアル">
 			</picture>
 		</div>
 
@@ -38,14 +38,15 @@
 				<div class="box">
 					<dl>
 						<dt>Title</dt>
-						<dd><input type = "text" id = "title" name = "blog-title" placeholder = "タイトルを入力" required></dd>
+						<dd><input type = "text" id = "title" name = "blogTitle" th:value = "${blogList.blogTitle}"  required></dd>
 						<dt>Category</dt>
-						<dd><input type = "text" id = "category" name = "category-name" placeholder = "カテゴリを入力" required></dd>
+						<dd><input type = "text" id = "category" name = "categoryName" th:value = "${blogList.categoryName}" required></dd>
 						<dt>Image</dt>
-						<dd><input type = "file" name = "blog-image"></dd>
+						<dd><input type = "file" name = "blogImage"></dd>
 						<dt>Article</dt>
-						<dd><textarea id = "article" name = "article" placeholder = "記事を入力" required></textarea></dd>
+						<dd><textarea id = "article" name = "article" th:text = "${blogList.article}" required></textarea></dd>
 					</dl>
+					<input type = "hidden" name = "blogId" th:value = "${blogList.blogId}">
 				</div>
                 <div id = "set-button">
                     <div class = "update-button"><input type = "submit" value = "Update Article"></div>

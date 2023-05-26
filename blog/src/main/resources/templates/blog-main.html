@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="blog_main.css">
+	<link rel="stylesheet" th:href="@{/css/blog-main.css}">
 	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Londrina+Shadow" rel="stylesheet">
@@ -16,10 +16,10 @@
 		<h1 class = "site-title">My Blog</h1>
 		<nav>
 			<ul>
-				<li><a href = "#article">Article List</a></li>
-				<li><a href = "blog_register.html" target = "_blank">Article Writing</a></li>
-				<li><a href = "blog_edit.html" target = "_blank">Article Editing</a></li>
-				<li><a href = "login.html" target = "_blank">Logout</a></li>
+				<li><a th:href = "@{#article}">Article List</a></li>
+				<li><a th:href = "@{/user/blog/register}" target = "_blank">Article Writing</a></li>
+				<li><a th:href = "@{/user/blog/edit}" target = "_blank">Article Editing</a></li>
+				<li><a th:href = "@{/user/blog/logout}" target = "_blank">Logout</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -27,12 +27,30 @@
 	<main>
 		<div id = "main-visual">
 			<picture>
-				<source media = "(max-width: 600px)" srcset = "img/kaede.jpg">
-				<img src = "img/kaede.jpg" alt = "メインビジュアル">
+				<source media = "(max-width: 600px)" th:srcset = "@{/img/kaede.jpg}">
+				<img th:src = "@{/img/kaede.jpg}" alt = "メインビジュアル">
 			</picture>
 		</div>
 		<section id = "article" class = "wrapper">
+		<div class="main-inner">
+			<section class="all-view-section">
 			<h2 class = "section-title">Article</h2>
+			<div class="all-view__flex">
+				<div class="all-view-article" th:each="blog:${blogList}">
+					<a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="all-view-colum">
+						<div class="all-view__category">
+							<p th:text=" ${blog.categoryName}">
+							</p>
+						</div>
+						<img th:src="@{/blog-img/{items}(items=${blog.blogImage})}">
+					<div class="colum__box">
+						<p th:text=" ${blog.blogTitle}"></p>
+					</div>
+					</a>
+				</div>
+			</div>
+			</section>
+		</div>
 		</section>
 	</main>
 	<footer id = "footer">
