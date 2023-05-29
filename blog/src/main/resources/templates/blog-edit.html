@@ -34,15 +34,13 @@
 
 		<section id = "article-edit" class = "wrapper">
 			<h2 class = "section-title">Article Editing</h2>
-            <form action = "" method = "post">
+            <form th:action = "@{/user/blog/update}" method = "post">
 				<div class="box">
 					<dl>
 						<dt>Title</dt>
 						<dd><input type = "text" id = "title" name = "blogTitle" th:value = "${blogList.blogTitle}"  required></dd>
 						<dt>Category</dt>
 						<dd><input type = "text" id = "category" name = "categoryName" th:value = "${blogList.categoryName}" required></dd>
-						<dt>Image</dt>
-						<dd><input type = "file" name = "blogImage"></dd>
 						<dt>Article</dt>
 						<dd><textarea id = "article" name = "article" th:text = "${blogList.article}" required></textarea></dd>
 					</dl>

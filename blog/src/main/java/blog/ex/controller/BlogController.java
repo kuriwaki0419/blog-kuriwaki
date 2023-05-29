@@ -58,6 +58,32 @@ public class BlogController {
 		return "blog-main.html";
 	}
 	
+	// ブログ画面詳細の表示 -------------------------------------------------------------------------------------------
+	@GetMapping("/details/{blogId}")										// HTTP GETリクエストに対する紐づけ
+	public String getBlogDitailsPage(@PathVariable Long blogId, Model model) {
+		
+		// セッションから現在のユーザー情報を取得し、UserEntityのインスタンスが取得出来たら、そのaccountIdを取得する
+		UserEntity userList = (UserEntity) session.getAttribute("user");
+		Long accountId = userList.getAccountId();
+		
+		// userListから現在ログインしている人のユーザー名を取得する
+		String accountName = userList.getAccountName();
+		model.addAttribute("accountName", accountName);
+		
+		// 指定されたblogIdに対応するブログを取得し、blogListに代入する
+		BlogEntity blogList = blogService.getBlogPost(blogId);
+		
+		// ページ遷移処理
+		if(blogList == null) {
+			return "redirect:/user/blog/list";
+			
+		}else {
+			model.addAttribute("blogList", blogList);
+//			model.addAttribute("blogList", blogList);
+			return "blog-details.html";				
+		}		
+	}
+	
 	// ブログ登録画面の表示 -------------------------------------------------------------------------------------------
 	@GetMapping("/register")
 	public String getBlogRegisterPage(Model model) {
@@ -79,11 +105,6 @@ public class BlogController {
 	public String blogRegister(@RequestParam String blogTitle, @RequestParam String categoryName,
 									@RequestParam("blogImage") MultipartFile blogImage,
 									@RequestParam String article, Model model) {
-		
-		System.out.println(blogTitle);
-		System.out.println(categoryName);
-		System.out.println(blogImage);
-		System.out.println(article);
 		
 		// セッションから現在のユーザー情報を取得し、UserEntityのインスタンスが取得出来たら、そのaccountIdを取得する
 		UserEntity userList = (UserEntity) session.getAttribute("user");
@@ -117,6 +138,26 @@ public class BlogController {
 		}
 	}
 	
+	// 編集ブログの選択画面の表示 -------------------------------------------------------------------------------------------
+	@GetMapping("/selector")										// HTTP GETリクエストに対する紐づけ
+	public String getBlogSelectorPage(Model model) {
+		
+		// セッションから現在のユーザー情報を取得し、UserEntityのインスタンスが取得出来たら、そのaccountIdを取得する
+		UserEntity userList = (UserEntity) session.getAttribute("user");
+		Long accountId = userList.getAccountId();
+		
+		// userListから現在ログインしている人のユーザー名を取得する
+		String accountName = userList.getAccountName();
+		
+		// 現在ログインしているユーザーに関連するブログを取得している
+		List<BlogEntity> blogList = blogService.findAllBlogPost(accountId);
+		
+		// コントローラーからビューに渡すためのデータを格納している
+		model.addAttribute("accountName",accountName);
+		model.addAttribute("blogList",blogList);
+		return "blog-selector.html";
+	}
+	
 	// ブログ編集画面の表示 -------------------------------------------------------------------------------------------
 	@GetMapping("/edit/{blogId}")
 	public String getBlogEditPage(@PathVariable Long blogId, Model model) {
@@ -135,6 +176,7 @@ public class BlogController {
 		// ページ遷移処理
 		if(blogList == null) {
 			return "redirect:/user/blog/list";
+			
 		}else {
 			model.addAttribute("blogList", blogList);
 //			model.addAttribute("blogList", blogList);
@@ -145,19 +187,81 @@ public class BlogController {
 	// ブログ編集処理 ------------------------------------------------------------------------------------------------
 	@PostMapping("/update")
 	public String blogUpdate(@RequestParam Long blogId, @RequestParam String blogTitle, @RequestParam String categoryName, 
-								@RequestParam String blogImage, @RequestParam String article, Model model) {
-
+								@RequestParam String article, Model model) {
+		
 		// セッションから現在のユーザー情報を取得し、UserEntityのインスタンスが取得出来たら、そのaccountIdを取得する
 		UserEntity userList = (UserEntity) session.getAttribute("user");
 		Long accountId = userList.getAccountId();
 		
 		// 指定されたblogIdに対応するブログを更新する
-		if(blogService.editBlogPost(blogId, blogTitle, categoryName, blogImage, article, accountId)) {
-			return "blog-main.html";
+		if(blogService.editBlogPost(blogId, blogTitle, categoryName,article, accountId)) {
+			return "redirect:/user/blog/list";
 		}else {
 			model.addAttribute("registerMessage", "更新に失敗しました");
 			return "blog-edit.html";
 		}
 	}
-
+	
+	// ブログ画像編集画面の表示 ----------------------------------------------------------------------------------------
+	@GetMapping("/image/edit/{blogId}")
+	public String getBlogEditImagePage(@PathVariable Long blogId, Model model) {
+		
+		// セッションから現在のユーザー情報を取得し、UserEntityのインスタンスが取得出来たら、そのaccountIdを取得する
+		UserEntity userList = (UserEntity) session.getAttribute("user");
+		Long accountId = userList.getAccountId();
+		
+		// userListから現在ログインしている人のユーザー名を取得する
+		String accountName = userList.getAccountName();
+		model.addAttribute("accountName", accountName);
+		
+		// 指定されたblogIdに対応するブログを取得し、blogListに代入する
+		BlogEntity blogList = blogService.getBlogPost(blogId);
+		
+		// ページ遷移処理
+		if(blogList == null) {
+			return "redirect:/user/blog/list";
+		}else {
+			model.addAttribute("blogList", blogList);
+//			model.addAttribute("editImageMessage", "画像編集");
+			return "blog-edit-image.html";
+		}
+	}
+	
+	// ブログ画像編集処理 --------------------------------------------------------------------------------------------
+	@PostMapping("/image/update")
+	public String blogUpdateImage(@RequestParam("blogImage") MultipartFile blogImage,
+								@RequestParam Long blogId, Model model) {
+		
+		// セッションから現在のユーザー情報を取得し、UserEntityのインスタンスが取得出来たら、そのaccountIdを取得する
+		UserEntity userList = (UserEntity) session.getAttribute("user");
+		Long accountId = userList.getAccountId();
+		
+		String fileName = blogImage.getOriginalFilename();
+		
+		// ファイルのアップロード処理
+		try {
+			// 画像ファイルの保存先を指定する
+			File blogFile = new File("./src/main/resources/static/blog-img/" + fileName);
+			// 画像ファイルからバイナリデータ	を取得する
+			byte[] bytes = blogImage.getBytes();
+			// 画像を保存(書き出し)するためのバッファを用意する
+			BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(blogFile));
+			// 画像ファイルの書き出しをする
+			out.write(bytes);
+			// バッファを閉じることにより、書き出しを正常終了させる
+			out.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		// ブログ画像の更新
+		if(blogService.editBlogImage(blogId, fileName, accountId)) {
+			return "redirect:/user/blog/list";
+		}else {
+			BlogEntity blogList = blogService.getBlogPost(blogId);
+			model.addAttribute("blogList", blogList);
+			model.addAttribute("editImageMessage", "更新失敗です");
+			return "blog-edit-image.html";
+		}
+	}	
 }

@@ -139,10 +139,10 @@ li {
 
 .all-view-category {
   position: absolute;
-  left: 0;
-  background-color: #594A4E;
+  top:0%;
+  background-color: #b7b2b2;
   color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 2rem;
 }
 
 .colum-box {
@@ -163,12 +163,18 @@ li {
   }
 
   .all-view-article {
-    width: 32%;
+    width: 100%;
     box-sizing: border-box;
   }
 
   .colum-box {
-    padding: 1.2rem;
+    padding: 0.7rem;
+    background-color: #fff;
+  }
+
+  .article-box {
+    color: #594A4E;
+    padding: 3.2rem;
     background-color: #fff;
   }
 
