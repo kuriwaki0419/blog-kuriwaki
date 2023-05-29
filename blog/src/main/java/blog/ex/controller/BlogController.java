@@ -232,6 +232,8 @@ public class BlogController {
 	public String blogUpdateImage(@RequestParam("blogImage") MultipartFile blogImage,
 								@RequestParam Long blogId, Model model) {
 		
+		System.out.println(blogImage);
+		
 		// セッションから現在のユーザー情報を取得し、UserEntityのインスタンスが取得出来たら、そのaccountIdを取得する
 		UserEntity userList = (UserEntity) session.getAttribute("user");
 		Long accountId = userList.getAccountId();
@@ -263,5 +265,27 @@ public class BlogController {
 			model.addAttribute("editImageMessage", "更新失敗です");
 			return "blog-edit-image.html";
 		}
-	}	
+	}
+	
+	// ブログ削除処理 ------------------------------------------------------------------------------------------------
+	@PostMapping("/delete")
+	public String blogDelete(@RequestParam Long blogId, Model model) {
+		
+		// ブログの削除
+		if(blogService.deleteBlog(blogId)) {
+			return "redirect:/user/blog/list";
+		}else {
+			model.addAttribute("DeleteDetailMessage", "記事削除に失敗しました");
+			return "blog-edit.html";
+		}
+	}
+	
+	// ログアウト削除処理 ----------------------------------------------------------------------------------------------
+	@GetMapping("/logout")
+	public String Logout() {
+		
+		// 現在のセッションを無効化する
+		session.invalidate();
+		return "redirect:/user/login";
+	}
 }
