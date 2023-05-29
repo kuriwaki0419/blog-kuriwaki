@@ -16,9 +16,9 @@
 		<h1 class = "site-title">My Blog</h1>
 		<nav>
 			<ul>
-				<li><a th:href = "@{#article}">Article List</a></li>
+				<li><a th:href = "@{/user/blog/list}" target = "_blank">Article List</a></li>
 				<li><a th:href = "@{/user/blog/register}" target = "_blank">Article Writing</a></li>
-				<li><a th:href = "@{/user/blog/selector#article}" target = "_blank">Article Editing</a></li>
+				<li><a th:href = "@{#article}" target = "_blank">Article Editing</a></li>
 				<li><a th:href = "@{/user/blog/logout}" target = "_blank">Logout</a></li>
 			</ul>
 		</nav>
@@ -35,10 +35,10 @@
 		<div class="main-inner">
 			
 		<section class="all-view-section">
-			<h2>Article</h2>
+			<h2>Select an editorial article</h2>
 			<div class = "article-list-flex">
 				<article class="all-view-article" th:each="blog:${blogList}">
-					<a th:href="@{/user/blog/details/{blogId}#article(blogId=${blog.blogId})}" class="all-view-colum">
+					<a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="all-view-colum">
 						<div class="all-view-category">
 							<p th:text=" ${blog.categoryName}"></p>
 						</div>

@@ -69,7 +69,7 @@ public class BlogService {
 	/***************************************************************************************/
 	/*                                     ブログ記事の更新処理                                */
 	/***************************************************************************************/	
-	public boolean editBlogPost(Long blogId, String blogTitle, String categoryName, String blogImage, String article , Long accountId) {
+	public boolean editBlogPost(Long blogId, String blogTitle, String categoryName, String article , Long accountId) {
 		BlogEntity blogList = blogDao.findByBlogId(blogId);
 		if(accountId == null) {
 			return false;
@@ -77,11 +77,31 @@ public class BlogService {
 			blogList.setBlogId(blogId);
 			blogList.setBlogTitle(blogTitle);
 			blogList.setCategoryName(categoryName);
-			blogList.setBlogImage(blogImage);
 			blogList.setArticle(article);
 			blogList.setAccountId(accountId);
 			blogDao.save(blogList);
 			return true;
 		}
 	}
+	
+	/***************************************************************************************/
+	/*                                     ブログ画像の更新処理                                */
+	/***************************************************************************************/	
+	public boolean editBlogImage(Long blogId, String fileName, Long accountId) {
+		
+		// 既に同じブログが存在するかどうかを検索する
+		BlogEntity blogList = blogDao.findByBlogId(blogId);
+		
+		// 既に設定されている画像が選択されたら処理を中断する(新しい画像なら更新する)
+		if(fileName == null || blogList.getBlogImage().equals(fileName)) {
+			return false;
+		}else {
+			blogList.setBlogId(blogId);
+			blogList.setBlogImage(fileName);
+			blogList.setAccountId(accountId);
+			blogDao.save(blogList);
+			return true;
+		}
+	}
+	
 }
