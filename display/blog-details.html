@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" th:href="@{/css/blog-main.css}">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Londrina+Shadow" rel="stylesheet">
+</head>
+<body>
+	<header id = "header">
+		<h1 class = "site-title">My Blog</h1>
+		<nav>
+			<ul>
+				<li><a th:href = "@{#article}">Article List</a></li>
+				<li><a th:href = "@{/user/blog/register}" target = "_blank">Article Writing</a></li>
+				<li><a th:href = "@{/user/blog/edit/{blogId}}" target = "_blank">Article Editing</a></li>
+				<li><a th:href = "@{/user/blog/logout}" target = "_blank">Logout</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<div id = "main-visual">
+			<picture>
+				<source media = "(max-width: 600px)" th:srcset = "@{/img/kaede.jpg}">
+				<img th:src = "@{/img/kaede.jpg}" alt = "メインビジュアル">
+			</picture>
+		</div>
+		<section id = "article" class = "wrapper">
+		<div class="main-inner">
+			
+		<section class="all-view-section">
+			<h2>Article</h2>
+			<div class = "article-list-flex">
+				<article class="all-view-article">
+					<a href="#" class="all-view-colum">
+						<div class="colum-box">
+							<p th:text=" ${blogList.blogTitle}"></p>
+						</div>
+						<div class="all-view-category">
+							<p th:text=" ${blogList.categoryName}"></p>
+						</div>
+						<img th:src="@{/blog-img/{items}(items=${blogList.blogImage})}">
+						<div class="colum-box">
+							<p th:text=" ${blogList.article}"></p>
+						</div>
+					</a>
+				</article>
+			</div>
+		</section>
+		</div>
+		</section>
+	</main>
+	<footer id = "footer">
+		<p>&copy; 2023 My Blog Kuriwaki</p>
+	</footer>
+</body>
+
+</html>

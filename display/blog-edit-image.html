@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" th:href="@{/css/blog-register.css}">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Londrina+Shadow" rel="stylesheet">
+</head>
+<body>
+	<header id = "header">
+		<h1 class = "site-title"><a href = "#" th:text ="${accountName}"></a></h1>
+		<nav>
+			<ul>
+				<li><a th:href = "@{/user/blog/list}" target = "_blank">Article List</a></li>
+				<li><a th:href = "@{#new-article}">Article Writing</a></li>
+				<li><a th:href = "@{/user/blog/edit}" target = "_blank">Article Editing</a></li>
+				<li><a th:href = "@{/user/blog/logout}" target = "_blank">Logout</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<div id = "main-visual">
+			<picture>
+				<source media = "(max-width: 600px)" th:srcset = "@{/img/kaede.jpg}">
+				<img th:src = "@{/img/kaede.jpg}" alt = "メインビジュアル">
+			</picture>
+		</div>
+		<h2 th:text = "${registerMessage}"></h2>
+		<section id = "new-article" class = "wrapper">
+			<h2 class = "section-title">Newer Articles</h2>
+            <form th:action = "@{/user/blog/register/process}" enctype = "multipart/form-data" method = "post">
+				<div class="box">
+					<dl>
+						<dt>Image</dt>
+						<dd><input type = "file" name = "blogImage"></dd>
+					</dl>
+				</div>
+                <div class = "button"><input type = "submit" value = "Add article"></div>
+            </form>
+		</section>
+	</main>
+
+	<footer id = "footer">
+		<p>&copy; 2023 My Blog Kuriwaki</p>
+	</footer>
+</body>
+
+</html>
