@@ -91,43 +91,45 @@ li {
 /*-------------------------------------------
                 記事作成エリア
 -------------------------------------------*/
-#article-edit dl {
+#new-article dl {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 20px;
 }
 
-#article-edit dt {
+#new-article dt {
     width: 10%;
 }
 
-#article-edit dd {
+#new-article dd {
     width: 80%;
     margin-bottom: 10px;
 }
 
-#article-edit dd input,
-#article-edit dd textarea {
+#new-article dd input,
+#new-article dd textarea {
   width: 100%;
   border: solid 1px #c8c8c8;
   padding: 10px;
+  background-color: rgb(239 239 239);
 }
 
-#article-edit dd textarea {
+#new-article #image {
+    background-color: rgb(255, 255, 255);
+}
+
+#new-article dd textarea {
     height: 20rem;
 }
 
 /*--------------------------------
             ボタン関連
 ---------------------------------*/
-
-#set-button{
-    display: flex;
-    justify-content: center;
-    justify-content: space-evenly;
+#new-article .button {
+    text-align: center;
 }
 
-#article-edit .update-button input {
+#new-article .button input {
     width: 200px;
     background-color: #24292e;
     color: #fff;
@@ -135,25 +137,10 @@ li {
     border: solid 1px #24292e;
 }
 
-#article-edit .update-button input:hover {
+#new-article .button input:hover {
     background: #fff;
     color: #24292e;
 }
-
-#article-edit .delete-button input {
-    width: 200px;
-    background-color: #24292e;
-    color: #fff;
-    padding: 15px 0;
-    border: solid 1px #24292e;
-}
-
-#article-edit .delete-button input:hover {
-    background: #fff;
-    color: #d92a2a;
-}
-
-
 
 /*-------------------------------------------
                   記事の枠線
@@ -182,3 +169,5 @@ li {
     padding: 10px 20px;
     text-align: center;
 }
+
+

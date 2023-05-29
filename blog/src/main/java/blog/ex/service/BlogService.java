@@ -104,4 +104,17 @@ public class BlogService {
 		}
 	}
 	
+	/***************************************************************************************/
+	/*                                     指定ブログの削除処理                                */
+	/***************************************************************************************/	
+	public boolean deleteBlog(Long blogId) {
+		
+		// blogIdが存在する場合は削除メソッドを呼び出す
+		if(blogId == null) {
+			return false;
+		}else {
+			blogDao.deleteByBlogId(blogId);
+			return true;
+		}
+	}
 }

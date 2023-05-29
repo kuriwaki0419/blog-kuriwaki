@@ -47,10 +47,21 @@
 					<input type = "hidden" name = "blogId" th:value = "${blogList.blogId}">
 				</div>
                 <div id = "set-button">
-                    <div class = "update-button"><input type = "submit" value = "Update Article"></div>
-                    <div class = "delete-button"><input type = "submit" value = "Delete article"></div>
+                    <div class = "update-button"><input type = "submit" value = "Update Article"></div>					
+                    <!--<div class = "delete-button"><input type = "submit" value = "Delete article"></div>-->
+                   <div class = "delete-button">
+					   <input type = "hidden" name = "blogId" th:value = "${blogList.blogId}">
+					   <input type = "submit" value = "Delete article" th:formaction="@{/user/blog/delete}">				   
+				   </div>
                 </div>
             </form>
+            
+			<div id = "image-update" th:each="blog:${blogList}">
+                <a th:href = "@{/user/blog/image/edit/{blogId}#new-article(blogId=${blog.blogId})}">
+                    <div class = "update-button"><input type = "submit" value = "Image Update"></div>
+                </a>
+			</div>
+            
 		</section>
 	</main>
 

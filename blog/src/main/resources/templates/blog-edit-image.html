@@ -33,18 +33,22 @@
 		</div>
 		<h2 th:text = "${registerMessage}"></h2>
 		<section id = "new-article" class = "wrapper">
-			<h2 class = "section-title">Newer Articles</h2>
-            <form th:action = "@{/user/blog/register/process}" enctype = "multipart/form-data" method = "post">
+			<h2 class = "section-title">Image Update</h2>
+            <form th:action = "@{/user/blog/image/update}" enctype = "multipart/form-data" method = "post">
 				<div class="box">
 					<dl>
+						<dt>Title</dt>
+						<dd><input type = "text" id = "title" name = "blogTitle" th:value = "${blogList.blogTitle}" readonly></dd>
+						<dt>Category</dt>
+						<dd><input type = "text" id = "category" name = "categoryName" th:value = "${blogList.categoryName}" readonly></dd>
 						<dt>Image</dt>
-						<dd><input type = "file" name = "blogImage"></dd>
+						<dd><input type = "file" id = "image" name = "blogImage"></dd>
+						<dt>Article</dt>
+						<dd><textarea id = "article" name = "article" th:text = "${blogList.article}" readonly></textarea></dd>
 					</dl>
+					<input type = "hidden" name = "blogId" th:value = "${blogList.blogId}">
 				</div>
-                <div id = "set-button">
-                    <div class = "update-button"><input type = "submit" value = "Update Article"></div>
-                    <div class = "delete-button"><input type = "submit" value = "Delete article"></div>
-                </div>
+                <div class = "button"><input type = "submit" value = "Edit Image"></div>
             </form>
 		</section>
 	</main>

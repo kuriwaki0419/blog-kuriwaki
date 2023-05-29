@@ -124,7 +124,18 @@ li {
 #set-button{
     display: flex;
     justify-content: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+}
+
+#image-update .update-button input {
+    position:absolute;
+    top:1352.4px;
+    left:668px;
+    width: 200px;
+    background-color: #24292e;
+    color: #fff;
+    padding: 15px 0;
+    border: solid 1px #24292e;
 }
 
 #article-edit .update-button input {

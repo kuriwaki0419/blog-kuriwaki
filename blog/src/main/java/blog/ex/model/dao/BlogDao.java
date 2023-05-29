@@ -11,6 +11,7 @@ package blog.ex.model.dao;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import blog.ex.model.entity.BlogEntity;
+import jakarta.transaction.Transactional;
 
 // CRUD操作を簡単に実装するための処理 ---------------------------------------------------------------------------------------------------
 public interface BlogDao extends JpaRepository<BlogEntity, Long> {
@@ -24,4 +25,8 @@ public interface BlogDao extends JpaRepository<BlogEntity, Long> {
 	
 	// blogIdに一致する複数のBlogEntityを取得する
 	BlogEntity findByBlogId(Long blogId);
+	
+	// BlogEntityのIDに基づいて、該当するBlogEntityを削除する
+	@Transactional
+	List<BlogEntity> deleteByBlogId(Long blogId);
 }
