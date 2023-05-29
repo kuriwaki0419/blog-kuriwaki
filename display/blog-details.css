@@ -1,0 +1,202 @@
+html {
+    font-size: 100%;
+}
+
+body {
+    color: #24292e;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+.site-title {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 2.4rem;
+    line-height: 1px;
+}
+
+.section-title {
+    display: inline-block;
+    justify-content: space-between;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 60px;
+    border-bottom: solid 1px #383e45;
+}
+
+.wrapper {
+    max-width: 960px;
+    margin: 0 auto 100px auto;
+    padding: 0 4%;
+    text-align: center;
+}
+
+/*-------------------------------------------
+                    ヘッダー
+-------------------------------------------*/
+#header {
+    max-width: 960px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+#header li a {
+    color: #24292e;
+}
+
+#header li a:hover{
+    color: #827676;
+}
+
+
+#header ul {
+    display: flex;
+    padding: 10px 0;
+}
+
+#header li {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    margin-left: 30px;
+}
+
+/*-------------------------------------------
+                Mainvisual
+-------------------------------------------*/
+#main-visual {
+    margin-bottom: 80px;
+}
+
+#main-visual img {
+    width: 100%;
+    max-width: 1920px;
+    height: 420px;
+    object-fit: cover;
+}
+
+/*--------------------------------------------
+                  一覧画面
+--------------------------------------------*/
+
+.main-inner {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.all-view-section {
+  padding-bottom: 1.5rem;
+}
+
+.all-view-section h2 {
+  font-family: Kiwi Maru;
+  color: #594A4E;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-bottom: 0.25rem solid #594A4E;
+  width: 80%;
+  padding: 1rem;
+  margin: 0 auto 1rem auto;
+}
+
+.article-list-flex {
+  width: 80%;
+  margin: 0 auto;
+  z-index: 999;
+}
+
+.all-view-article {
+  border: 1px solid #594A4E;
+  margin-bottom: 2rem;
+  background-color: #fff;
+
+}
+
+.all-view-colum {
+  position: relative;
+  font-family: Kiwi Maru;
+  background-color: #fff;
+}
+
+.all-view-colum img {
+  background-color: #fff;
+  border-bottom: 1px solid #594A4E;
+}
+
+.all-view-category {
+  position: absolute;
+  left: 0;
+  background-color: #594A4E;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+
+.colum-box {
+  padding: 1rem;
+  background-color: #fff;
+  color: #594A4E;
+  font-family: Kiwi Maru;
+  text-align-last: center;
+}
+
+@media screen and (min-width: 600px) {
+  .article-list-flex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .all-view-article {
+    width: 32%;
+    box-sizing: border-box;
+  }
+
+  .colum-box {
+    padding: 1.2rem;
+    background-color: #fff;
+  }
+
+  .colum-box p:nth-child(1) {
+    text-align: left;
+    font-size: 1rem;
+  }
+
+  .colum-box p:nth-child(2) {
+    text-align: left;
+    padding: 1.2rem 0;
+    font-size: 1.2rem;
+  }
+
+  .colum-box p:nth-child(3) {
+    text-align: right;
+    font-size: 1rem;
+  }
+
+/*-------------------------------------------
+                フッター
+-------------------------------------------*/
+#footer {
+    background-color: #24292e;
+    color: #fff;
+    font-size: 0.5rem;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+}
