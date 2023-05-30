@@ -13,7 +13,7 @@
 </head>
 <body>
 	<header id = "header">
-		<h1 class = "site-title"><a href = "#" th:text ="${accountName}"></a></h1>
+		<h1 class = "site-title"><div th:text ="${accountName} + Blog"></div></h1>
 		<nav>
             <ul>
                 <li><a th:href = "@{/user/blog/list}" target = "_blank">Article List</a></li>
@@ -33,6 +33,7 @@
 		</div>
 
 		<section id = "article-edit" class = "wrapper">
+			<h2 th:text = "${registerMessage}"></h2>
 			<h2 class = "section-title">Article Editing</h2>
             <form th:action = "@{/user/blog/update}" method = "post">
 				<div class="box">

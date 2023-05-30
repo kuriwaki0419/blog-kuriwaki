@@ -179,7 +179,6 @@ public class BlogController {
 			
 		}else {
 			model.addAttribute("blogList", blogList);
-//			model.addAttribute("blogList", blogList);
 			return "blog-edit.html";				
 		}		
 	}
@@ -262,7 +261,7 @@ public class BlogController {
 		}else {
 			BlogEntity blogList = blogService.getBlogPost(blogId);
 			model.addAttribute("blogList", blogList);
-			model.addAttribute("editImageMessage", "更新失敗です");
+			model.addAttribute("editImageMessage", "ー 同じ画像が選択されたため、更新失敗です ー");
 			return "blog-edit-image.html";
 		}
 	}
@@ -288,4 +287,43 @@ public class BlogController {
 		session.invalidate();
 		return "redirect:/user/login";
 	}
+	
+	// ブログ検索処理 ----------------------------------------------------------------------------------------------
+//	@PostMapping("/search")
+//	public String blogSearch(@RequestParam String searchKeywords,  Model model) {
+//		if(blogService.searchBlog(searchKeywords)) {
+//			System.out.println(searchKeywords);
+//			
+//			// セッションから現在のユーザー情報を取得し、UserEntityのインスタンスが取得出来たら、そのaccountIdを取得する
+//			UserEntity userList = (UserEntity) session.getAttribute("user");
+//			Long accountId = userList.getAccountId();
+//			
+//			// userListから現在ログインしている人のユーザー名を取得する
+//			String accountName = userList.getAccountName();
+//			
+//			// 現在ログインしているユーザーに関連するブログを取得している
+//			List<BlogEntity> blogList = blogService.findAllBlogPost(accountId);
+//			
+//			// コントローラーからビューに渡すためのデータを格納している
+//			model.addAttribute("accountName",accountName);
+//			model.addAttribute("blogList",blogList);
+//
+//			
+//			model.addAttribute("searchWords" , searchKeywords);
+//			return "blog-search.html";
+//		}else {
+//			return "redirect:/user/blog/list";
+//		}
+//	}
+//	
+		
+	// ブログ検索処理 ----------------------------------------------------------------------------------------------
+	@PostMapping("/search")
+	public String blogSearch(@RequestParam String searchKeywords,  Model model) {
+		List<BlogEntity> blogList = blogService.searchBlogs(searchKeywords);
+		System.out.println(blogList);
+		model.addAttribute("blogList" , blogList);
+		return "blog-search.html";
+	}
+	
 }
