@@ -6,17 +6,20 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" th:href="@{/css/blog-details.css}">
+	<link rel="stylesheet" th:href="@{/css/blog-main.css}">
 	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Londrina+Shadow" rel="stylesheet">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
 	<header id = "header">
 		<h1 class = "site-title"><div th:text ="${accountName} + Blog"></div></h1>
 		<nav>
 			<ul>
-				<li><a th:href = "@{/user/blog/list}" target = "_blank">Article List</a></li>
+				<li><a th:href = "@{#article}">Article List</a></li>
 				<li><a th:href = "@{/user/blog/register}" target = "_blank">Article Writing</a></li>
 				<li><a th:href = "@{/user/blog/selector#article}" target = "_blank">Article Editing</a></li>
 				<li><a th:href = "@{/user/blog/logout}" target = "_blank">Logout</a></li>
@@ -35,21 +38,34 @@
 		<div class="main-inner">
 			
 		<section class="all-view-section">
-			<h2>Select Article</h2>
+			
+			<form th:action = "@{/user/blog/search#article}" method = "post" class="search_container">
+				<input type = "text" name = "searchKeywords" placeholder = "キーワードの入力" autofocus>
+				<input type = "submit" name = "submit" value = "&#xf002">
+			</form>
+
+
+			<a th:href = "@{/user/blog/list#article}" class = "reset-button">
+				<i class="fa-solid fa-rotate-right"></i>
+			</a>
+
+			<h2>Article</h2>
 			<div class = "article-list-flex">
-				<article class="all-view-article">
-					<a th:href="@{#article}" class="all-view-colum">
-						<div class="colum-box">
-							<p th:text=" ${blogList.blogTitle}"></p>
-						</div>
+				<article class="all-view-article" th:each="blog:${blogList}">
+<!--					<th:block th:if="${blog.categoryName.equals('category6')}">-->
+
+					
+					<a th:href="@{/user/blog/details/{blogId}#article(blogId=${blog.blogId})}" class="all-view-colum">
 						<div class="all-view-category">
-							<p th:text=" ${blogList.categoryName}"></p>
+							<p th:text=" ${blog.categoryName}"></p>
 						</div>
-						<img th:src="@{/blog-img/{items}(items=${blogList.blogImage})}">
-						<div class="article-box">
-							<p th:text=" ${blogList.article}"></p>
+						<img th:src="@{/blog-img/{items}(items=${blog.blogImage})}">
+						<div class="colum-box">
+							<p th:text=" ${blog.blogTitle}"></p>
 						</div>
 					</a>
+					
+<!--					</th:block>-->
 				</article>
 			</div>
 		</section>

@@ -29,4 +29,7 @@ public interface BlogDao extends JpaRepository<BlogEntity, Long> {
 	// BlogEntityのIDに基づいて、該当するBlogEntityを削除する
 	@Transactional
 	List<BlogEntity> deleteByBlogId(Long blogId);
+	
+	//キーワードから検索
+	List<BlogEntity> findByBlogTitleContainingOrCategoryNameContaining(String titleKeyword, String categoryKeyword);
 }

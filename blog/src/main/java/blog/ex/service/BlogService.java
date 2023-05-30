@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import blog.ex.model.dao.BlogDao;
 import blog.ex.model.entity.BlogEntity;
+import blog.ex.model.other.BlogSearch;
 
 // ブログ操作処理 ------------------------------------------------------------------------------------------------------------------
 @Service						// カプセル化された状態でモデル内に単独で存在するインターフェースとして提供される操作として最初に定義されたことを示す
@@ -116,5 +117,16 @@ public class BlogService {
 			blogDao.deleteByBlogId(blogId);
 			return true;
 		}
+	}
+	
+	public boolean searchBlog(String searchKeywords) {
+		BlogSearch blogSearch = new BlogSearch();
+		blogSearch.setSearchKeywords(searchKeywords);
+		return true;
+	}
+	
+	public List<BlogEntity> searchBlogs(String searchKeywords) {
+		return blogDao.findByBlogTitleContainingOrCategoryNameContaining(searchKeywords, searchKeywords);
+		
 	}
 }

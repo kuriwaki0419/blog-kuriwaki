@@ -13,7 +13,7 @@
 </head>
 <body>
 	<header id = "header">
-		<h1 class = "site-title"><a href = "#" th:text ="${accountName}"></a></h1>
+		<h1 class = "site-title"><div th:text ="${accountName} + Blog"></div></h1>
 		<nav>
 			<ul>
 				<li><a th:href = "@{/user/blog/list}" target = "_blank">Article List</a></li>
@@ -31,8 +31,8 @@
 				<img th:src = "@{/img/kaede.jpg}" alt = "メインビジュアル">
 			</picture>
 		</div>
-		<h2 th:text = "${registerMessage}"></h2>
 		<section id = "new-article" class = "wrapper">
+		<h2 th:text = "${editImageMessage}"></h2>
 			<h2 class = "section-title">Image Update</h2>
             <form th:action = "@{/user/blog/image/update}" enctype = "multipart/form-data" method = "post">
 				<div class="box">

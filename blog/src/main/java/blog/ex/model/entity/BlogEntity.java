@@ -52,7 +52,7 @@ public class BlogEntity {
 	
 	@Column(name = "account_id")						// フィールド(accountId) と DBのカラム(account_id)を紐づける
 	private Long accountId;								// ユーザーの使用するアカウントのID
-	
+		
 	// 新しいブログ記事のエンティティの作成コンストラクタ -------------------------------------------------------------------------
 	public BlogEntity(@NonNull String blogTitle, @NonNull String categoryName, @NonNull String blogImage, 
 																		@NonNull String article , Long accountId) {
