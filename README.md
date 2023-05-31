@@ -17,3 +17,4 @@
 - コメント機能制作時の参考資料
   - CSSの見栄え優先度問題を解決する際に参考にしました。(https://onl.bz/8kWvfgx) 
   - Comment機能の調整をする際に参考にしました。(https://onl.bz/ZVvn63C)
+  - コメント機能の導入の参考にしました。(https://www.htmlcommentbox.com/)
