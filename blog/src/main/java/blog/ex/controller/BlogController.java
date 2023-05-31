@@ -58,6 +58,13 @@ public class BlogController {
 		return "blog-main.html";
 	}
 	
+	// 開発者ブログ画面の表示 -------------------------------------------------------------------------------------------
+	@GetMapping("/develop")										// HTTP GETリクエストに対する紐づけ
+	public String getDeveloperPage(Model model) {
+		
+		return "developer-profile.html";
+	}
+	
 	// ブログ画面詳細の表示 -------------------------------------------------------------------------------------------
 	@GetMapping("/details/{blogId}")										// HTTP GETリクエストに対する紐づけ
 	public String getBlogDitailsPage(@PathVariable Long blogId, Model model) {
@@ -320,8 +327,9 @@ public class BlogController {
 	// ブログ検索処理 ----------------------------------------------------------------------------------------------
 	@PostMapping("/search")
 	public String blogSearch(@RequestParam String searchKeywords,  Model model) {
+		
+		// ブログの検索を行い、リストに格納
 		List<BlogEntity> blogList = blogService.searchBlogs(searchKeywords);
-		System.out.println(blogList);
 		model.addAttribute("blogList" , blogList);
 		return "blog-search.html";
 	}

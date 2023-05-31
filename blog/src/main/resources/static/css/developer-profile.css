@@ -1,0 +1,138 @@
+html {
+    font-size: 100%;
+}
+
+body {
+    color: #24292e;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+.site-title {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 2.4rem;
+    line-height: 1px;
+}
+
+.content-title {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+.section-title {
+    display: inline-block;
+    justify-content: space-between;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 60px;
+    border-bottom: solid 1px #383e45;
+}
+
+.wrapper {
+    max-width: 960px;
+    margin: 0 auto 50px auto;
+    padding: 0 4%;
+    text-align: center;
+}
+
+/*-------------------------------------------
+                    ヘッダー
+-------------------------------------------*/
+#header {
+    max-width: 960px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+#header li a {
+    color: #24292e;
+}
+
+#header li a:hover{
+    color: #827676;
+}
+
+
+#header ul {
+    display: flex;
+    padding: 10px 0;
+}
+
+#header li {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    margin-left: 30px;
+}
+
+/*-------------------------------------------
+                Mainvisual
+-------------------------------------------*/
+#main-visual {
+    margin-bottom: 80px;
+}
+
+#main-visual img {
+    width: 100%;
+    max-width: 1920px;
+    height: 420px;
+    object-fit: cover;
+}
+
+/*-------------------------------------------
+                    Article
+-------------------------------------------*/
+#article .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#article img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /*丸くカットしている*/
+    margin-right: 30px;
+}
+
+#article .text {
+    text-align: left;
+}
+
+/*-------------------------------------------
+                    Hobby
+-------------------------------------------*/
+#hobby ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+#hobby li{
+    width: 32%;
+}
+
+
+/*-------------------------------------------
+                フッター
+-------------------------------------------*/
+#footer {
+    background-color: #24292e;
+    color: #fff;
+    font-size: 0.5rem;
+    padding: 10px 20px;
+    text-align: center;
+}

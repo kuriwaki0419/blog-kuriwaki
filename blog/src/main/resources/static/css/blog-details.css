@@ -1,3 +1,4 @@
+
 html {
     font-size: 100%;
 }
@@ -193,6 +194,42 @@ li {
     text-align: right;
     font-size: 1rem;
   }
+
+/*-------------------------------------------
+                検索機能
+-------------------------------------------*/
+
+.admin-link{
+	display:none;
+}
+
+.hcb-icon{
+	display:none;	
+}
+
+#hcb_subscribe{
+	display:none;		
+}
+
+#hcb_settings{
+	display:none;
+}
+
+#no_comments{
+	display:none;
+}
+
+.home-desc{
+	display:none;		
+}
+
+#HCB_comment_box #hcb_form #hcb_subscribe {
+    display: none !important;
+}
+
+#HCB_comment_box textarea {
+    width: 80% ! important;
+}
 
 /*-------------------------------------------
                 フッター
