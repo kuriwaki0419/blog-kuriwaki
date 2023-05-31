@@ -13,6 +13,16 @@
   - ブログ検索機能
   - コメント機能
 
+## 各機能の制作詳細
+- 宜しければスプレッドシートをご参照ください。
+
+  - スケジュール&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(https://onl.bz/1bBxxU9)
+  - 日報&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(https://onl.bz/CMsH3Fd) 
+  - 作業チェックシート&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(https://onl.bz/VUSJWdj)
+  - テーブル定義書&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(https://onl.bz/XkQbjXH)
+  - ER図&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(https://onl.bz/jQ3rjJZ)
+  - ユースケース図&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(https://onl.bz/8sae7jP)
+
 ## 参考資料
 - ブログ検索機能制作時の参考資料
   - 検索バーの見栄えを綺麗にするために参考にしました。&emsp;(https://onl.bz/Q9n11nw) 
