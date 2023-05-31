@@ -14,7 +14,7 @@
   - コメント機能
 
 ## 各機能の制作詳細
-- 宜しければスプレッドシートをご参照ください。
+- 宜しければ下記スプレッドシートをご参照ください。
 
   - スケジュール&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(https://onl.bz/1bBxxU9)
   - 日報&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(https://onl.bz/CMsH3Fd) 
