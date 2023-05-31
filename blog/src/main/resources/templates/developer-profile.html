@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" th:href="@{/css/developer-profile.css}">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Londrina+Shadow" rel="stylesheet">
+</head>
+<body>
+	<header id = "header">
+		<h1 class = "site-title">My Blog</h1>
+		<nav>
+			<ul>
+				<li><a th:href = "@{/user/blog/list}">Article List</a></li>
+				<li><a th:href = "@{/user/blog/register}" target = "_blank">Article Writing</a></li>
+				<li><a th:href = "@{/user/blog/selector#article}" target = "_blank">Article Editing</a></li>
+				<li><a th:href = "@{/user/blog/logout}" target = "_blank">Logout</a></li>
+				<li><a th:href = "@{#article}" target = "_blank">Developer Profile</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<div id = "main-visual">
+			<picture>
+				<source media = "(max-width: 600px)" th:srcset = "@{/img/kaede.jpg}">
+				<img th:src = "@{/img/kaede.jpg}" alt = "メインビジュアル">
+			</picture>
+		</div>
+		<section id = "article" class = "wrapper">
+			<h2 class = "section-title">Profile</h2>
+            <div class = "content">
+                <img th:src = "@{/img/恋に無駄口.jpg}" alt = "プロフィールアイコン">
+                <div class = "text">
+                    <h3 class = "content-title">KURIWAKI RYUTO</h3>
+                    <p>
+                        2002年4月19日生まれの21歳です<br>
+                        今回の研修を経て、普段ウェブサイトを見るときに<br>
+                        どの様なソースコード、cssを書かれているのか気になり<br>
+                        開発者ツールを使い見るようになってしまいました。
+                    </p>
+                </div>
+            </div>
+		</section>
+
+        <section id = "hobby" class = "wrapper">
+            <h2 class = "section-title">Hobby</h2>
+            <ul>
+                <li>
+                    <img th:src = "@{/img/hobby1.jpeg}" alt = "hobby1">
+                    <h3 class = "content-title">映画鑑賞</h3>
+                    <p>
+                        映画を見ることはもちろん、<br>
+                        映画館の雰囲気が好きなので<br>
+                        様々な映画館で見ています。
+                    </p>
+                </li>
+                <li>
+                    <img th:src = "@{/img/hobby2.jpg}" alt = "hobby2">
+                    <h3 class = "content-title">読書</h3>
+                    <p>
+                        本は小説が主に多いです。<br>
+                        ジャンルは特にミステリーが好きで<br>
+                        米澤穂信さんの氷菓はオススメです。
+                    </p>
+                </li>
+                <li>
+                    <img th:src = "@{/img/hobby3.jpg}" alt = "hobby3">
+                    <h3 class = "content-title">バスケットボール</h3>
+                    <p>
+                        バスケットボールは8年間、部活や<br>
+                        クラブチームでプレイしてました。<br>
+                        ポジションはどこでもできます。
+                    </p>
+                </li>
+            </ul>
+        </section>
+	</main>
+	<footer id = "footer">
+		<p>&copy; 2023 My Blog Kuriwaki</p>
+	</footer>
+</body>
+
+</html>
