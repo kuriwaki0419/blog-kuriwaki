@@ -119,12 +119,17 @@ public class BlogService {
 		}
 	}
 	
+	/***************************************************************************************/
+	/*                                     ブログの検索処理                                   */
+	/***************************************************************************************/	
+/*
 	public boolean searchBlog(String searchKeywords) {
 		BlogSearch blogSearch = new BlogSearch();
 		blogSearch.setSearchKeywords(searchKeywords);
 		return true;
 	}
 	
+*/
 	public List<BlogEntity> searchBlogs(String searchKeywords) {
 		return blogDao.findByBlogTitleContainingOrCategoryNameContaining(searchKeywords, searchKeywords);
 		
