@@ -32,8 +32,8 @@
 				<img th:src = "@{/img/kaede.jpg}" alt = "メインビジュアル">
 			</picture>
 		</div>
-		<h2 th:text = "${registerMessage}"></h2>
 		<section id = "new-article" class = "wrapper">
+			<h2 th:text = "${registerMessage}"></h2>
 			<h2 class = "section-title">Newer Articles</h2>
             <form th:action = "@{/user/blog/register/process}" enctype = "multipart/form-data" method = "post">
 				<div class="box">

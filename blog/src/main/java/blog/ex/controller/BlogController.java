@@ -86,7 +86,6 @@ public class BlogController {
 			
 		}else {
 			model.addAttribute("blogList", blogList);
-//			model.addAttribute("blogList", blogList);
 			return "blog-details.html";				
 		}		
 	}
@@ -97,7 +96,7 @@ public class BlogController {
 
 		// セッションから現在のユーザー情報を取得し、UserEntityのインスタンスが取得出来たら、そのaccountIdを取得する
 		UserEntity userList = (UserEntity) session.getAttribute("user");
-		Long accountId = userList.getAccountId();
+//		Long accountId = userList.getAccountId();
 		
 		// userListから現在ログインしている人のユーザー名を取得する
 		String accountName = userList.getAccountName();
@@ -171,7 +170,7 @@ public class BlogController {
 		
 		// セッションから現在のユーザー情報を取得し、UserEntityのインスタンスが取得出来たら、そのaccountIdを取得する
 		UserEntity userList = (UserEntity) session.getAttribute("user");
-		Long accountId = userList.getAccountId();
+//		Long accountId = userList.getAccountId();
 		
 		// userListから現在ログインしている人のユーザー名を取得する
 		String accountName = userList.getAccountName();
@@ -214,7 +213,7 @@ public class BlogController {
 		
 		// セッションから現在のユーザー情報を取得し、UserEntityのインスタンスが取得出来たら、そのaccountIdを取得する
 		UserEntity userList = (UserEntity) session.getAttribute("user");
-		Long accountId = userList.getAccountId();
+//		Long accountId = userList.getAccountId();
 		
 		// userListから現在ログインしている人のユーザー名を取得する
 		String accountName = userList.getAccountName();
